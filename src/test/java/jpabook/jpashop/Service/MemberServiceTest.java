@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -49,5 +52,30 @@ public class MemberServiceTest {
 
         // then
         fail("예외가 발생");
+    }
+
+    @Test
+    public void all_조회() throws Exception {
+        // given
+        List<Member> members = new ArrayList<>();
+
+        Member member1 = new Member();
+        member1.setName("kim1");
+        members.add(member1);
+        memberService.join(member1);
+
+        Member member2 = new Member();
+        member2.setName("kim2");
+        members.add(member2);
+        memberService.join(member2);
+
+        // when
+        List<Member> findMembers = memberService.findMembers();
+
+        // then
+        assertEquals(members.size(), findMembers.size());
+        for(int i = 0; i < members.size(); i++){
+            assertEquals(members.get(i), findMembers.get(i));
+        }
     }
 }
