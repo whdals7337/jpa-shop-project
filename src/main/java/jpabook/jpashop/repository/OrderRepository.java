@@ -68,15 +68,13 @@ public class OrderRepository {
         List<Predicate> criteria = new ArrayList<>();
         //주문 상태 검색
         if (orderSearch.getOrderStatus() != null) {
-            Predicate status = cb.equal(o.get("status"),
-                    orderSearch.getOrderStatus());
+            Predicate status = cb.equal(o.get("status"), orderSearch.getOrderStatus());
             criteria.add(status);
         }
         //회원 이름 검색
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             Predicate name =
-                    cb.like(m.<String>get("name"), "%" +
-                            orderSearch.getMemberName() + "%");
+                    cb.like(m.<String>get("name"), "%" + orderSearch.getMemberName() + "%");
             criteria.add(name);
         }
         cq.where(cb.and(criteria.toArray(new Predicate[criteria.size()])));

@@ -20,6 +20,11 @@ spring:
 #        show_sql: true
         format_sql: true
 
+# 타임리프 설정
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
 # 로그 설정
 logging.level:
   org.hibernate.SQL: debug
