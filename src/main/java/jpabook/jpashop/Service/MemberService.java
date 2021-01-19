@@ -40,4 +40,11 @@ public class MemberService {
             throw new IllegalStateException("이미 존재하는 회원 입니다.");
         }
     }
+
+    // 회원 수정
+    @Transactional
+    public void update(Long id, String name) {
+        Member member = memberRepository.findOne(id);
+        member.setName(name);
+    }
 }
