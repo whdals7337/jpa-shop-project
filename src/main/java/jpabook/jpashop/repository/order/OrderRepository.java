@@ -1,7 +1,8 @@
-package jpabook.jpashop.repository;
+package jpabook.jpashop.repository.order;
 
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.member.Member;
+import jpabook.jpashop.domain.order.Order;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
