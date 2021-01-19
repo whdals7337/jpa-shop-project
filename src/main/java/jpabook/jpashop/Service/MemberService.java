@@ -30,7 +30,7 @@ public class MemberService {
 
     // 회원 정보 조회
     public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+        return memberRepository.getOne(memberId);
     }
 
     // 회원 중복 조회 메서드
@@ -44,7 +44,7 @@ public class MemberService {
     // 회원 수정
     @Transactional
     public void update(Long id, String name) {
-        Member member = memberRepository.findOne(id);
+        Member member = memberRepository.getOne(id);
         member.setName(name);
     }
 }
