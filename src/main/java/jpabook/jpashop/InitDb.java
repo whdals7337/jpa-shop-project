@@ -7,6 +7,7 @@ import jpabook.jpashop.domain.member.Member;
 import jpabook.jpashop.domain.order.Order;
 import jpabook.jpashop.domain.orderitem.OrderItem;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 
 @Component
+@Profile("!test")
 @RequiredArgsConstructor
 public class InitDb {
 

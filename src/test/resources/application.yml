@@ -1,5 +1,8 @@
 # 콘솔 색상 설정
 spring:
+  profiles:
+    active: test
+
   output:
     ansi:
       enabled: always
